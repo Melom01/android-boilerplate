@@ -28,11 +28,6 @@ android {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
     android.buildFeatures.buildConfig true
-
-    ktlint {
-        android.set(true)
-        ignoreFailures.set(false)
-    }
 }
 
 dependencies {

@@ -9,14 +9,10 @@ buildscript {
         classpath(libs.android.buildtools)
         classpath(libs.hilt.gradleplugin)
         classpath(libs.kotlin.gradleplugin)
-        classpath(libs.detekt.gradleplugin)
-        classpath(libs.ktlint.gradleplugin)
     }
 }
 
 plugins {
-    alias(libs.plugins.detekt)
-    alias(libs.plugins.ktlint)
     alias(libs.plugins.androidLibrary) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     alias(libs.plugins.jetbrainsKotlinJvm) apply false

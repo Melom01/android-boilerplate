@@ -76,6 +76,13 @@ android {
 }
 
 dependencies {
+    implementation(projects.core.network)
+    implementation(projects.core.ui)
+    implementation(projects.core.util)
+    implementation(projects.home.data)
+    implementation(projects.home.domain)
+    implementation(projects.home.presentation)
+
     implementation(libs.accompanist.systemuicontroller)
 
     implementation(libs.androidx.core.ktx)
