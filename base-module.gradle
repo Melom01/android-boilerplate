@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+
+
+android {
+    compileSdk libs.versions.compile.sdk.version.get().toInteger()
+
+    defaultConfig {
+        minSdk libs.versions.min.sdk.version.get().toInteger()
+        targetSdk libs.versions.target.sdk.version.get().toInteger()
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+    android.buildFeatures.buildConfig true
+
+    ktlint {
+        android.set(true)
+        ignoreFailures.set(false)
+    }
+}
+
+dependencies {
+    implementation libs.hilt
+    kapt libs.hilt.compiler
+
+    implementation libs.timber
+
+    testImplementation libs.junit
+    testImplementation libs.androidx.junit
+    testImplementation libs.mockk
+
+    androidTestImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.mockk
+}
